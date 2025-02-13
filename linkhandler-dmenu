@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Feed this script a link and it will give dmenu
+# some choice programs to use to open it.
+link="${1:-$(printf "%s" | dmenu -p 'Paste URL or file path')}"
+
+case "$(printf "Audio download\\nVideo Download\\nPlay" | dmenu -i -p "Select Action")" in
+	"Audio download") yt-dlp -f bestaudio "$link" -P ~/dl ;;
+	"Video download") yt-dlp "$link" -P ~/dl ;;
+	"Play") mpv "$link"  ;;
+esac
