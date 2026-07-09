@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Dependencies:
-# convert wal xdotool xwallpaper
+# convert wal xdotool magick awww
 
 wall_dir=~/pix/wall
 
@@ -12,7 +12,9 @@ else
 fi
 
 magick "$wall" ~/.local/share/bg.jpg
-swww img ~/.local/share/bg.jpg
+awww img ~/.local/share/bg.jpg
 wal -c
 wal -i ~/.local/share/bg.jpg
 xdotool key super+F5
+cp ~/.cache/wal/colors-kitty.conf ~/.config/kitty/theme.conf
+cp ~/.cache/wal/colors-rofi-light.rasi ~/.config/rofi/themes/mg_girl.rasi
